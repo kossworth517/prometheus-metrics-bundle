@@ -53,10 +53,6 @@ class Configuration implements ConfigurationInterface
                     ->setDeprecated(
                         ...$this->getDeprecationMsg('The type config parameter was deprecated in 1.14 and will be dropped in 2.0.', '1.14')
                     )
-                    ->validate()
-                        ->ifNotInArray($supportedTypes)
-                        ->thenInvalid('The type %s is not supported. Please choose one of '.json_encode($supportedTypes))
-                    ->end()
                     ->defaultValue('in_memory')
                     ->cannotBeEmpty()
                 ->end()
